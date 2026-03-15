@@ -1,0 +1,267 @@
+/* Basic background styles */
+body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    color: white;
+    text-shadow: 3px 3px 5px black;
+    z-index: 5;
+    width: 100%;
+    text-align: center;
+    height: 100px;
+    position: absolute;
+}
+main {
+    z-index: 0;
+    background-color: #420d00;
+    margin: 0;
+}
+#map-library {
+    position: relative;
+    height: 100vh;
+    z-index: 0;
+    margin: 0 auto;
+}
+#map-maze {
+    position: relative;
+    height: 100vh;
+    z-index: 0;
+    margin: 0 auto;
+    display: none;
+}
+.maze-furnishings {
+    display: none;
+}
+#map-gallery {
+    position: relative;
+    height: 100vh;
+    z-index: 0;
+    margin: 0 auto;
+    display: none;
+}
+.gallery-furnishings {
+    display: none;
+}
+button {
+    position: absolute;
+    z-index: 5;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    background-color: #420d00;
+    display: flex;
+    align-items: flex-end;
+    margin: 20px;
+    padding: 10px 20px;
+}
+
+/* Library map styles */
+.library-furnishings {
+    height: 100vh;
+    overflow: hidden;
+    margin: 0 auto;
+}
+#library-bookcases {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#library-tables {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#library-top-left-carpet {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#library-top-right-carpet {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#library-side-left-carpet {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#library-side-right-carpet {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Maze map styles */
+.maze-furnishings {
+    height: 100vh;
+    overflow: hidden;
+    margin: 0 auto;
+}
+#maze-walls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#top-left-teleport {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#top-right-teleport {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#bottom-left-teleport {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#bottom-right-teleport {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#open-chest-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#open-chest-right {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Gallery map styles */
+.gallery-furnishings {
+    height: 100vh;
+    overflow: hidden;
+    margin: 0 auto;
+}
+#gallery-halls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#gallery-plants {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#gallery-nice-ghosts1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Scrubby animation styles */ 
+.scrubby-animation {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20px; 
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr; 
+    align-items: center;
+    align-content: center;
+}
+#scrub_sit, #scrub_run_L1, #scrub_run_L2, #scrub_run_R1, #scrub_run_R2, #scrub_run_U1, #scrub_run_U2, #scrub_run_D1, #scrub_run_D2 {
+    width: 180px;
+    height: auto;
+    position: relative; 
+    /* border-radius: 100%; 
+    border: #420d00 2px solid; */
+    grid-column: 1/2;
+    grid-row: 1/2;
+    margin: 0 auto;
+}
+#scrub_sit {
+    display: block;
+}
+#scrub_run_L1, #scrub_run_L2, #scrub_run_R1, #scrub_run_R2, #scrub_run_U1, #scrub_run_U2, #scrub_run_D1, #scrub_run_D2 {
+    display: none;
+}
+
+
+#scrubby_identity {
+    display: none;
+}
