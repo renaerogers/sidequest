@@ -10,7 +10,6 @@ const scrubby = {
     'runD1': document.getElementById('scrub_run_D1'),
     'runD2': document.getElementById('scrub_run_D2')
 };
-
 // Get map content
 const mapLibrary = {
     'background' : document.getElementById('map-library'),

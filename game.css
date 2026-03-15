@@ -230,6 +230,11 @@ button {
     left: 50%;
     transform: translateX(-50%);
 }
+.gallery-furnishings div {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+}
 
 /* Scrubby animation styles */ 
 .scrubby-animation {
