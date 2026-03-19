@@ -8,6 +8,8 @@ const scrubbyRunU2 = document.getElementById('scrub_run_U2');
 const scrubbyRunD1 = document.getElementById('scrub_run_D1');
 const scrubbyRunD2 = document.getElementById('scrub_run_D2');
 
+const scrubbyBlock = document.getElementById('scrubby-block');
+
 const keys = {};
 let frame = 0;
 
@@ -42,7 +44,7 @@ function updatePosition(runLeft, runRight, runUp, runDown) {
     const allFrames = [
         scrubbySitting, scrubbyRunL1, scrubbyRunL2, 
         scrubbyRunR1, scrubbyRunR2, scrubbyRunU1, 
-        scrubbyRunU2, scrubbyRunD1, scrubbyRunD2
+        scrubbyRunU2, scrubbyRunD1, scrubbyRunD2, scrubbyBlock
     ];
 
     allFrames.forEach(scrubby => {
@@ -117,7 +119,7 @@ function startRunningUpAnimation(runUp) {
         scrubbyRunR2.style.display = 'none';
         scrubbyRunL1.style.display = 'none';
         scrubbyRunL2.style.display = 'none';
-
+        
         if (frame % 2 === 0) {
             scrubbyRunU1.style.display = 'inline-block';
             scrubbyRunU2.style.display = 'none'; 
@@ -172,17 +174,28 @@ function gameLoop() {
 
     if (runLeft) {
         startRunningLeftAnimation(true);
+        scrubbyBlock.style.width = '90px';
+        scrubbyBlock.style.height = '50px';
     } else if (runRight) {
         startRunningRightAnimation(true);
+        scrubbyBlock.style.width = '90px';
+        scrubbyBlock.style.height = '50px';
     } else if (runUp) {
         startRunningUpAnimation(true);
+        scrubbyBlock.style.width = '60px';
+        scrubbyBlock.style.height = '90px';
     } else if (runDown) {
         startRunningDownAnimation(true);
+        scrubbyBlock.style.width = '60px';
+        scrubbyBlock.style.height = '90px';
+
     } else {
         startRunningLeftAnimation(false);
         startRunningRightAnimation(false);
         startRunningUpAnimation(false);
         startRunningDownAnimation(false);
+        scrubbyBlock.style.width = '70px';
+        scrubbyBlock.style.height = '80px';
     }
 }
 setInterval(gameLoop, 200); 

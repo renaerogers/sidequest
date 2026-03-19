@@ -1,0 +1,47 @@
+main {
+    position: relative; /* Essential! This makes "0,0" the corner of the maroon box */
+    width: 100%;
+    height: 100vh;
+    background-color: #420d00;
+    display: grid; 
+    /* You can keep the grid for the lightblue box, which isn't moving */
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+#one-container {
+    width: 150px;
+    height: 150px;
+    background-color: tomato;
+    position: absolute; /* Kept for JS compatibility */
+    z-index: 10;
+    
+    /* Initial starting position (instead of grid-column) */
+    top: 50%; 
+    left: 20%;
+    transform: translate(-50%, -50%); 
+}
+#one {
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    margin: auto; 
+}
+
+#two-container {
+    /* This one stays stuck in the grid */
+    grid-column: 4 / 5;
+    grid-row: 2 / 3;
+    width: 150px;
+    height: 150px;
+    background-color: lightblue;
+    justify-self: center;
+    align-self: center;
+    z-index: 1;
+}
+#two {
+    border-radius: 100%;
+    background-color: blue;
+    width: 50px;
+    height: 50px;
+}
