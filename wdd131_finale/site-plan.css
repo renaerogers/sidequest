@@ -2,16 +2,17 @@
 Any spaces in your font name should be replaced with a +. 
 Fonts are separated by a | */
 @import url("https://fonts.googleapis.com/css?family=IM+Fell+French+Canon+SC|Lato");
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Momo+Signature&family=Pacifico&display=swap');
 
 :root {
   /* change the values below to your colors from your palette */
-  --primary-color: #396e94;
-  --secondary-color: #e7c24f;
-  --accent1-color: #a42212;
-  --accent2-color: white;
+  --primary-color: #FF9797;
+  --secondary-color: #FFC57B;
+  --accent1-color: #FF5B09;
+  --accent2-color: #303448;
 
   /* change the values below to your chosen font(s) */
-  --heading-font: "IM Fell French Canon SC";
+  --heading-font: "Momo Signature";
   --paragraph-font: Lato, Helvetica, sans-serif;
 
   /* these colors below should be chosen from among your palette colors above */
@@ -24,7 +25,7 @@ Fonts are separated by a | */
   ); /* paragraph text on a white background */
   --paragraph-color-on-color: white; /* paragraph text on a colored background */
   --paragraph-background-color: var(--primary-color);
-  --nav-link-color: var(--primary-color);
+  --nav-link-color: var(--accent1-color);
   --nav-background-color: var(--secondary-color);
   --nav-hover-link-color: white;
   --nav-hover-background-color: var(--primary-color);
@@ -41,6 +42,7 @@ body {
 img {
   display: block;
   margin: 0 auto;
+  width: 50%;
 }
 h1,
 h2,
