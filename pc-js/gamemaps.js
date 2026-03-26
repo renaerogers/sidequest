@@ -55,6 +55,7 @@ function showMap(mapName) {
     } else if (mapName === 'maze') {
         mapLibrary["background"].style.display = 'none';
         mapMaze["background"].style.removeProperty('display');
+        mapMaze.style.display = 'block';
         mapMaze["furnishings"].style.removeProperty('display');
         mapGallery["background"].style.display = 'none';
     } else if (mapName === 'gallery') {

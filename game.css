@@ -249,7 +249,7 @@ button {
 /* Scrubby animation styles */ 
 .scrubby-animation {
     position: absolute;
-    z-index: 2;
+    z-index: 5;
     left: 50%;
     transform: translateX(-50%);
     top: 20px; 
@@ -292,7 +292,22 @@ button {
     display: none;
 }
 
+.map-container {
+  position: absolute;
+  z-index: 3;
+  transform: translateX(-50%);
+  top: 0; 
+  display: inline-block;
+  height: 100vh;  
+  width: 100%;
+}
 .map-collisions {
+    position: relative;
+  display: block;
+  width: 100%;
+  height: 100vh;
+}
+/* .map-collisions {
     position: absolute;
     z-index: 3;
     left: 50%;
@@ -300,8 +315,8 @@ button {
     top: 0; 
     width: 100%;
     height: 100vh;
-}
-#point1 {
+} */
+/* #point1 {
     position: absolute;
     z-index: 3;
     top: 0;
@@ -309,7 +324,50 @@ button {
     width: 80px;
     height: 80px;
     background-color: red;
-    margin: 0 19.1%;
-    left: 50%;
+    margin: 0;
+    left: 69%;
     transform: translateX(-50%);
+}
+#point2 {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    background-color: yellow;
+    margin: 0;
+    left: 31%;
+    transform: translateX(-50%);
+} */
+
+/* .point {
+    position: absolute;
+    width: 2%;
+    height: 2%; 
+    transform: translate(-50%, -50%); 
+    background-color: red;
+    border-radius: 50%;
+} */
+
+#point1 {
+    position: absolute;
+    z-index: 3;
+    transform: translate(-50%, -50%); /* Centers the point on the exact coordinate */
+    top: 5.5%;  /* Distance from the top */
+    left: 31%; /* Distance from the left */
+    width: 80px;
+    height: 80px;
+    background-color: #ffff50;
+}
+
+#point2 {
+    position: absolute;
+    z-index: 3;
+    transform: translate(-50%, -50%); /* Centers the point on the exact coordinate */
+    top: 5.5%;
+    left: 69%;
+    width: 80px;
+    height: 80px;
+    background-color: blueviolet;
 }

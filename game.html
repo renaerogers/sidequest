@@ -8,6 +8,7 @@
     <script src="pc-js/gamemoves.js" defer></script>
     <!-- <script src="pc-js/gamecollisions.js" defer></script> -->
     <script src="pc-js/gamemaps.js" defer></script>
+    <script src="pc-js/gameportalcoordinates.js" defer></script>
 </head>
 <body>
     <header> 
@@ -28,8 +29,8 @@
             <img id="scrub_run_D1" src="images/scrubby_run_D1.png" alt="Scrubby Running Frame Down">
             <img id="scrub_run_D2" src="images/scrubby_run_D2.png" alt="Scrubby Running Frame Down">
         </div>
-        <div class="map">
-            <div class="library-container">
+        <div class="map-container">
+            <div class="map-collisions">
                 <div id="point1"></div>
                 <div id="point2"></div>
                 <div id="point3"></div>
@@ -38,6 +39,10 @@
                 <div id="point6"></div>
                 <div id="point7"></div>
                 <div id="point8"></div>
+            </div>
+        </div>
+        <div class="map">
+            <div class="library-container">
                 <img id="map-library" src="images/map-scrubby-library.png" alt="Library Game Map">
                 <div class="library-furnishings">
                     <img id="library-bookcases" src="images/m-library-bookcases.png" alt="Library Bookcases">
