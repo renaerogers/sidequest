@@ -12,39 +12,16 @@ const scrubby = {
     'scrubby-block': document.getElementById('scrubby-block')
 };
 // Get map content
-const mapLibrary = {
-    'background' : document.getElementById('map-library'),
-    'furnishings': document.querySelector('library-furnishings'),
-    'tables': document.getElementById('library-tables'),
-    'bookcases': document.getElementById('library-bookcases'),
-    'top-left-carpet': document.getElementById('library-top-left-carpet'),
-    'top-right-carpet': document.getElementById('library-top-right-carpet'),
-    'side-left-carpet': document.getElementById('library-side-left-carpet'),
-    'side-right-carpet': document.getElementById('library-side-right-carpet')
-};
-const mapMaze = {
-    'background' : document.getElementById('map-maze'),
-    'furnishings': document.querySelector('maze-furnishings'),
-    'walls': document.getElementById('maze-walls'),
-    'floor': document.getElementById('maze-floor'),
-    'top-left-carpet': document.getElementById('maze-top-left-carpet'),
-    'top-right-carpet': document.getElementById('maze-top-right-carpet'),
-    'side-left-carpet': document.getElementById('maze-side-left-carpet'),
-    'side-right-carpet': document.getElementById('maze-side-right-carpet'),
-    'open-chest-left': document.getElementById('maze-open-chest-left'),
-    'open-chest-right': document.getElementById('maze-open-chest-right'),
-};
-const mapGallery = {
-    'background' : document.getElementById('map-gallery'),
-    'furnishings': document.querySelector('gallery-furnishings'),
-    'halls': document.getElementById('gallery-halls'),
-    'nice-ghosts1': document.getElementById('gallery-nice-ghosts1'),
-};
+const mapLibrary = document.getElementById('map-library');
+
+const mapMaze = document.getElementById('map-maze');
+
+const mapGallery = document.getElementById('map-gallery');
 
 // Get 'portals'
 // const moveToMaze = document.getElementById('library-top-left-carpet');
 
-map = 'library'; // Initial map
+let map = 'library'; // Initial map
 
 // Function to change the map displayed
 function showMap(mapName) {
@@ -53,18 +30,17 @@ function showMap(mapName) {
         mapMaze.style.display = 'none';
         mapGallery.style.display = 'none';
     } else if (mapName === 'maze') {
-        mapLibrary["background"].style.display = 'none';
-        mapMaze["background"].style.removeProperty('display');
+        mapLibrary.style.display = 'none';
         mapMaze.style.display = 'block';
-        mapMaze["furnishings"].style.removeProperty('display');
-        mapGallery["background"].style.display = 'none';
+        mapGallery.style.display = 'none';
     } else if (mapName === 'gallery') {
-        mapLibrary["background"].style.display = 'none';
-        mapMaze["background"].style.display = 'none';
-        mapGallery["background"].style.display = 'block';
+        mapLibrary.style.display = 'none';
+        mapMaze.style.display = 'none';
+        mapGallery.style.display = 'block';
     }
 }
 
+// Function to change Scrubby's position
 function updatePositionBounceBack(runLeft, runRight, runUp, runDown) {
     const bounceBackSpeed = speed * 2; 
     if (runLeft) {
@@ -92,6 +68,48 @@ function updatePositionBounceBack(runLeft, runRight, runUp, runDown) {
     });
 }
 
+// Function to change Scrubby's size depending on the map displayed 
+// function updateScrubbySize(mapName) {
+//     if (mapName === 'library') {
+//         const scrubbyChanges = scrubby.filter(([key, value]) => {
+//             return key != 'scrubby-block'; 
+//         }).map((key) => {
+//             return key.value.style.width = '180px'
+//         });
+//     } else if (mapName === 'maze') {
+//         const scrubbyChanges = scrubby.filter(([key, value]) => {
+//             return key != 'scrubby-block'; 
+//         }).map((key) => {
+//             return key.value.style.width = '120px'
+//         });
+//     }
+// }
+
+function updateScrubbySize(mapName) {
+    // Determine the width based on the mapName
+    const sizes = {
+        'library': '180px',
+        'gallery': '180px',
+        'maze':    '120px',
+        'forest':  '150px' // Easy to add more later!
+    };
+    const newWidth = sizes[mapName]
+    
+    if (newWidth) {
+        Object.entries(scrubby)
+            .filter(([key]) => key !== 'scrubby-block')
+            .forEach(([key, element]) => {
+                if (element) {
+                    element.style.width = newWidth;
+                }
+            });
+    }   
+}
+
+function updateScrubbyBlock(mapName) {
+    console.log(mapName + "Please finish this function.")
+}
+
 const moveToMaze = document.getElementById('point1');
 
 function checkCollision() {
@@ -101,19 +119,31 @@ function checkCollision() {
     if (rectOne.left < rectTwo.right &&
         rectOne.right > rectTwo.left &&
         rectOne.top < rectTwo.bottom &&
-        rectOne.bottom > rectTwo.top) {
+        rectOne.bottom > rectTwo.top && map == 'library') {
         scrubby["scrubby-block"].style.backgroundColor = 'black';
         showMap('maze'); 
+        updateScrubbySize('maze')
 
-        const runLeft = keys['a'] || keys['arrowleft'];
-        const runRight = keys['d'] || keys['arrowright'];
-        const runUp = keys['w'] || keys['arrowup'];
-        const runDown = keys['s'] || keys['arrowdown'];
+        let map = 'maze'
+        
+        // const runLeft = keys['a'] || keys['arrowleft'];
+        // const runRight = keys['d'] || keys['arrowright'];
+        // const runUp = keys['w'] || keys['arrowup'];
+        // const runDown = keys['s'] || keys['arrowdown'];
 
         // updatePositionBounceBack(runLeft, runRight, runUp, runDown);
+    } else if (rectOne.left < rectTwo.right &&
+        rectOne.right > rectTwo.left &&
+        rectOne.top < rectTwo.bottom &&
+        rectOne.bottom > rectTwo.top && map == 'library'){
+        moveToMaze.style.backgroundColor = 'purple';
+        showMap('library')
+        updateScrubbySize('library')
+
+        scrubby["scrubby-block"].style.backgroundColor = 'yellow';
     } else {
         moveToMaze.style.backgroundColor = 'purple';
     }
 }
 
-setInterval(checkCollision, 200);
+setInterval(checkCollision, 500);
